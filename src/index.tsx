@@ -1,18 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-
+import { Card, Content, Grid, Title } from './components'
+import { ThemeProvider } from 'styled-components'
 import { reportWebVitals } from './core'
-import { GlobalStyles } from './styles'
+import { GlobalStyles, theme } from './styles'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
-  <React.StrictMode>
+  <ThemeProvider theme={theme}>
     <GlobalStyles />
-    <div>Hello World!!</div>
-  </React.StrictMode>
+    <Content data-cy={'content'}>
+      <Title data-cy={'title'}>Sudoku</Title>
+      <Card data-cy={'card'}>
+        <Grid />
+      </Card>
+    </Content>
+  </ThemeProvider>
 )
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals()
